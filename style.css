@@ -1,0 +1,222 @@
+/* Chat Icon */
+#anurag-chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2147483646; /* High z-index */
+    transition: background-color 0.3s;
+  }
+  
+  #anurag-chat-icon:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Chat Widget */
+  #anurag-chat-widget {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    z-index: 2147483647; /* Max z-index */
+    overflow: hidden;
+  }
+  
+  #anurag-chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  #anurag-chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  #anurag-chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .message {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+    line-height: 1.4;
+    font-size: 0.9em;
+  }
+  
+  .user-message {
+    background-color: #e1f5fe;
+    color: #333;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .bot-message {
+    background-color: #007bff; /* Default bot message */
+    color: white;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+  }
+  
+  /* For messages like "Connecting...", "Error..." that are not standard replies */
+/* ... your existing styles ... */
+
+.message {
+  padding: 10px 15px; /* More padding */
+  border-radius: 18px; /* Softer curves */
+  max-width: 75%;     /* Slightly less wide */
+  word-wrap: break-word;
+  line-height: 1.5;   /* Better readability */
+  margin-bottom: 8px; /* Space between bubbles */
+  position: relative; /* For pseudo-elements like tails */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
+}
+
+.user-message {
+  background-color: #e1f5fe;
+  color: #333;
+  align-self: flex-end; /* Moves to the right */
+  border-bottom-right-radius: 5px; /* Tail effect */
+  margin-left: auto; /* Pushes to the right */
+}
+
+/* Example tail for user message */
+.user-message::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -7px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #e1f5fe;
+  border-bottom-color: #e1f5fe; /* Match bubble color */
+  border-right: 0;
+  border-top: 0;
+  margin-bottom: -1px; /* Fine-tune position */
+}
+
+
+.bot-message {
+  background-color: #007bff; /* Anurag primary blue */
+  color: white;
+  align-self: flex-start; /* Stays on the left */
+  border-bottom-left-radius: 5px; /* Tail effect */
+  margin-right: auto; /* Pushes to the left */
+}
+
+/* Example tail for bot message */
+.bot-message::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -7px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #007bff; /* Match bubble color */
+  border-bottom-color: #007bff;
+  border-left: 0;
+  border-top: 0;
+  margin-bottom: -1px;
+}
+
+/* Avatar styling example */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px; /* Space between avatar and bubble for bot */
+  margin-left: 8px; /* Space for user avatar */
+  background-color: #ccc; /* Placeholder */
+  /* Add background-image for actual avatar image */
+  flex-shrink: 0; /* Prevent avatar from shrinking */
+}
+
+
+.message-container {
+  display: flex;
+  align-items: flex-end; /* Align avatar with bottom of bubble */
+  margin-bottom: 10px;
+}
+.message-container.user {
+  justify-content: flex-end;
+}
+*/
+  
+  
+  #anurag-chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+  }
+  
+  #anurag-chat-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 10px;
+    outline: none;
+    font-size: 0.9em;
+  }
+  
+  #anurag-chat-input:focus {
+    border-color: #007bff;
+  }
+  
+  #anurag-chat-send {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+  
+  #anurag-chat-send:hover:not(:disabled) { /* Only hover when not disabled */
+    background-color: #0056b3;
+  }
+  
+  #anurag-chat-send:disabled {
+    background-color: #a0cfff;
+    cursor: not-allowed;
+  }
