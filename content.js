@@ -206,7 +206,7 @@
         chatWidget.id = 'anurag-chat-widget';
         chatWidget.innerHTML = `
             <div id="anurag-chat-header">
-                <span>Anurag College Chatbot</span>
+                <span>Edubot</span>
                 <button id="anurag-chat-close">X</button>
             </div>
             <div id="anurag-chat-messages"></div>
