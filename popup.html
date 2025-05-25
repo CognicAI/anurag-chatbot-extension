@@ -3,32 +3,46 @@
 <head>
   <title>Anurag Chatbot Config</title>
   <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
-    <h3>Anurag College Chatbot</h3>
-    <div class="active-info">
-      <span class="dot active"></span> Active on anurag.edu.in
-    </div>
+    <header class="header">
+      <img src="icons/icon48.png" alt="Chatbot Icon" class="logo">
+      <h1>Anurag College Chatbot</h1>
+    </header>
 
-    <h4>Features:</h4>
-    <ul>
-      <li>Connects to custom backend</li>
-      <li>Session-based interaction</li>
-      <li>Answers questions about Anurag University</li>
-    </ul>
+    <section class="status-section">
+      <div class="active-info">
+        <span class="dot active"></span> Active on anurag.edu.in
+      </div>
+    </section>
 
-    <h4>API Configuration:</h4>
-    <label for="apiEndpoint">Backend API Base URL:</label>
-    <input type="text" id="apiEndpoint" placeholder="e.g., http://localhost:5000">
-    <button id="saveConfig">Save Configuration</button>
-    <p id="statusMessage"></p>
+    <section class="features-section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Connects to a custom backend API</li>
+        <li>Maintains session-based interactions</li>
+        <li>Provides answers about Anurag University</li>
+      </ul>
+    </section>
 
-    <hr>
-    <p class="footer-text">
-      To use the chatbot, visit <a href="https://anurag.edu.in" target="_blank">anurag.edu.in</a> and click on the chat icon in the bottom right corner.
-    </p>
-    <p class="copyright">© 2025 Anurag College Chatbot</p>
+    <section class="config-section">
+      <h2>API Configuration</h2>
+      <div class="form-group">
+        <label for="apiEndpoint">Backend API Base URL:</label>
+        <input type="text" id="apiEndpoint" placeholder="e.g., https://api.anurag.edu/chatbot">
+      </div>
+      <button id="saveConfig" class="btn btn-primary">Save Configuration</button>
+      <p id="statusMessage"></p>
+    </section>
+
+    <footer class="footer">
+      <p class="footer-text">
+        To use the chatbot, visit <a href="https://anurag.edu.in" target="_blank" rel="noopener noreferrer">anurag.edu.in</a> and click the chat icon.
+      </p>
+      <p class="copyright">© 2025 Anurag College Chatbot</p>
+    </footer>
   </div>
   <script src="popup.js"></script>
 </body>

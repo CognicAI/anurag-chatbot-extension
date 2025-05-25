@@ -5,19 +5,20 @@
     right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #007bff;
+    background-color: #C4161C; /* Anurag's primary red */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 2147483646; /* High z-index */
-    transition: background-color 0.3s;
+    box-shadow: 0 4px 12px rgba(196, 22, 28, 0.2);
+    z-index: 2147483646;
+    transition: all 0.3s ease;
   }
   
   #anurag-chat-icon:hover {
-    background-color: #0056b3;
+    background-color: #A11217; /* Darker shade of primary red */
+    transform: scale(1.05);
   }
   
   /* Chat Widget */
@@ -25,198 +26,331 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 350px;
-    height: 500px;
+    width: 370px;
+    height: 550px;
     background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(27, 47, 69, 0.15);
     display: none;
     flex-direction: column;
-    font-family: Arial, sans-serif;
-    z-index: 2147483647; /* Max z-index */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    z-index: 2147483647;
     overflow: hidden;
   }
   
   #anurag-chat-header {
-    background-color: #007bff;
+    background-color: #2A3F5F; /* Updated Anurag's navy blue */
     color: white;
-    padding: 10px 15px;
-    font-size: 1.1em;
-    font-weight: bold;
+    padding: 16px 20px;
+    font-size: 1.2em;
+    font-weight: 600;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
   }
   
   #anurag-chat-close {
     background: none;
     border: none;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.4em;
     cursor: pointer;
     padding: 5px;
+    line-height: 1;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  
+  #anurag-chat-close:hover {
+    opacity: 1;
   }
   
   #anurag-chat-messages {
     flex-grow: 1;
-    padding: 15px;
+    padding: 20px;
     overflow-y: auto;
-    background-color: #f9f9f9;
+    background-color: #F5F5F5; /* Light gray background matching website */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
+  }
+  
+  .message-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    max-width: 85%;
+  }
+  
+  .message-container.user {
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+  
+  .message-container.bot {
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+  
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .bot .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   
   .message {
-    padding: 8px 12px;
-    border-radius: 15px;
-    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    max-width: 100%;
     word-wrap: break-word;
     line-height: 1.4;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    position: relative;
   }
   
   .user-message {
-    background-color: #e1f5fe;
-    color: #333;
-    align-self: flex-end;
-    border-bottom-right-radius: 5px;
+    background-color: #2A3F5F; /* Updated Navy blue for user messages */
+    color: white;
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
   }
   
   .bot-message {
-    background-color: #007bff; /* Default bot message */
-    color: white;
-    align-self: flex-start;
-    border-bottom-left-radius: 5px;
+    background-color: #FFFFFF; /* White background for bot messages */
+    color: #626262; /* Text gray from website */
+    border: 1px solid #E5E5E5;
+    border-bottom-left-radius: 4px;
+    margin-right: auto;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    /* Ensure bot message container can hold quick replies below it */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  /* For messages like "Connecting...", "Error..." that are not standard replies */
-/* ... your existing styles ... */
+  .bot-message .message-content { 
+    /* If you wrap the actual text in a span/div, style it here */
+    padding: 12px 16px; /* Original message padding */
+  }
 
-.message {
-  padding: 10px 15px; /* More padding */
-  border-radius: 18px; /* Softer curves */
-  max-width: 75%;     /* Slightly less wide */
-  word-wrap: break-word;
-  line-height: 1.5;   /* Better readability */
-  margin-bottom: 8px; /* Space between bubbles */
-  position: relative; /* For pseudo-elements like tails */
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
+  .message-content strong {
+    font-weight: bold;
+  }
+
+  .message-content em {
+    font-style: italic;
+  }
+  
+  .message-content code {
+    background-color: #f0f0f0; /* Light grey background for highlighted text */
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace; /* Monospaced font for code-like text */
+    color: #C4161C; /* Anurag primary red for the text color */
+  }
+
+  /* Styles for Markdown Lists */
+  .message-content ul {
+    list-style-type: disc; /* Default bullet points */
+    padding-left: 20px; /* Indentation for the list */
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .message-content li {
+    margin-bottom: 3px; /* Space between list items */
+    line-height: 1.4; /* Ensure consistent line height with other text */
+  }
+
+  /* New styles for inline quick replies */
+.quick-replies-container {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-end; /* Align buttons to the right */
+    gap: 8px; /* Space between buttons */
+    margin-top: 10px; /* Space below the bot message text */
+    margin-left: auto; /* Push to the right if parent is flex-start */
+    padding-right: 0; /* Align with the right edge of chat */
+    width: fit-content; /* Container takes width of its content */
+    align-self: flex-end; /* Ensure the container itself aligns to the right */
 }
 
-.user-message {
-  background-color: #e1f5fe;
-  color: #333;
-  align-self: flex-end; /* Moves to the right */
-  border-bottom-right-radius: 5px; /* Tail effect */
-  margin-left: auto; /* Pushes to the right */
+.quick-reply-button {
+    background-color: #FFFFFF;
+    color: #2A3F5F;
+    border: 1.5px solid #2A3F5F;
+    border-radius: 20px; /* Pill shape */
+    padding: 8px 16px;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    white-space: nowrap;
 }
 
-/* Example tail for user message */
-.user-message::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: -7px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-left-color: #e1f5fe;
-  border-bottom-color: #e1f5fe; /* Match bubble color */
-  border-right: 0;
-  border-top: 0;
-  margin-bottom: -1px; /* Fine-tune position */
+.quick-reply-button:hover {
+    background-color: #2A3F5F;
+    color: #FFFFFF;
 }
 
-
-.bot-message {
-  background-color: #007bff; /* Anurag primary blue */
-  color: white;
-  align-self: flex-start; /* Stays on the left */
-  border-bottom-left-radius: 5px; /* Tail effect */
-  margin-right: auto; /* Pushes to the left */
+.quick-reply-button:active {
+    transform: scale(0.98);
 }
 
-/* Example tail for bot message */
-.bot-message::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -7px;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-right-color: #007bff; /* Match bubble color */
-  border-bottom-color: #007bff;
-  border-left: 0;
-  border-top: 0;
-  margin-bottom: -1px;
+/* Comment out old quick action styles */
+/*
+#anurag-chat-quick-actions {
+    padding: 12px 16px;
+    background-color: #ffffff;
+    border-top: 1px solid #E5E5E5;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 100px;
+    overflow-y: auto;
 }
 
-/* Avatar styling example */
-.avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 8px; /* Space between avatar and bubble for bot */
-  margin-left: 8px; /* Space for user avatar */
-  background-color: #ccc; /* Placeholder */
-  /* Add background-image for actual avatar image */
-  flex-shrink: 0; /* Prevent avatar from shrinking */
+.quick-action-btn {
+    background-color: #F5F5F5;
+    color: #2A3F5F; 
+    border: 1px solid #E5E5E5;
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    font-weight: 500;
 }
 
-
-.message-container {
-  display: flex;
-  align-items: flex-end; /* Align avatar with bottom of bubble */
-  margin-bottom: 10px;
+.quick-action-btn:hover {
+    background-color: #C4161C;
+    color: white;
+    border-color: #C4161C;
 }
-.message-container.user {
-  justify-content: flex-end;
+
+.quick-action-btn:active {
+    transform: scale(0.98);
 }
 */
-  
-  
-  #anurag-chat-input-area {
+
+#anurag-chat-input-area {
+    padding: 16px;
+    background-color: #ffffff;
+    border-top: 1px solid #E5E5E5;
     display: flex;
-    padding: 10px;
-    border-top: 1px solid #eee;
-    background-color: #fff;
-  }
-  
-  #anurag-chat-input {
+    align-items: center;
+    gap: 12px;
+}
+
+#anurag-chat-input {
     flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    margin-right: 10px;
+    padding: 12px 20px;
+    background-color: #F5F5F5;
+    border: 1px solid #E5E5E5;
+    border-radius: 24px;
+    font-size: 0.95em;
+    color: #626262;
     outline: none;
-    font-size: 0.9em;
-  }
-  
-  #anurag-chat-input:focus {
-    border-color: #007bff;
-  }
-  
-  #anurag-chat-send {
-    background-color: #007bff;
+}
+
+#anurag-chat-input:focus {
+    border-color: #C4161C;
+    box-shadow: 0 0 0 2px rgba(196, 22, 28, 0.1);
+}
+
+#anurag-chat-send {
+    background-color: #C4161C;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 0.9em;
-  }
-  
-  #anurag-chat-send:hover:not(:disabled) { /* Only hover when not disabled */
-    background-color: #0056b3;
-  }
-  
-  #anurag-chat-send:disabled {
-    background-color: #a0cfff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+#anurag-chat-send:hover:not(:disabled) {
+    background-color: #A11217;
+}
+
+#anurag-chat-send:disabled {
+    background-color: #E5E5E5;
     cursor: not-allowed;
+}
+
+/* Scrollbar Styling */
+#anurag-chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+#anurag-chat-messages::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#anurag-chat-messages::-webkit-scrollbar-thumb {
+    background-color: rgba(42, 63, 95, 0.3); /* Updated scrollbar thumb based on new blue */
+    border-radius: 3px;
+}
+
+/* Typing Indicator Styles */
+.message-container.typing-indicator-message .bot-message {
+    background-color: transparent; /* No bubble background for typing indicator */
+    border: none;
+    box-shadow: none;
+    padding: 0; /* Remove default padding */
+    display: flex; /* Align indicator properly */
+    justify-content: flex-start; /* Align to start */
+}
+
+.message-container.typing-indicator-message .message-content {
+    padding: 10px 16px !important; /* Consistent padding for the indicator itself */
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  background-color: #b0b0b0; /* Neutral dot color */
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 2px;
+  animation: anuragTypingBounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes anuragTypingBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0;
+  } 40% {
+    transform: scale(1.0);
+    opacity: 1;
   }
+}

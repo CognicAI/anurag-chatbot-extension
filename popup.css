@@ -1,27 +1,71 @@
 body {
-    font-family: sans-serif;
-    width: 300px;
-    padding: 10px;
-    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif;
+    width: 350px; /* Increased width for better layout */
+    padding: 0;
+    background-color: #f0f2f5; /* Lighter, modern background */
     color: #333;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the container if body takes full width */
   }
   
   .container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
     display: flex;
     flex-direction: column;
   }
   
-  h3, h4 {
-    margin-top: 5px;
-    margin-bottom: 8px;
-    color: #0056b3; /* Anurag-like blue */
-  }
-  
-  .active-info {
-    font-size: 0.9em;
-    margin-bottom: 10px;
+  .header {
+    background-color: #0056b3; /* Anurag-like blue */
+    color: white;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .logo {
+    width: 32px; /* Adjust size as needed */
+    height: 32px;
+    margin-right: 12px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.25em;
+    font-weight: 500;
+  }
+  
+  /* Section Styling */
+  section {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0; /* Separator lines */
+  }
+  
+  section:last-of-type {
+    border-bottom: none;
+  }
+  
+  section h2 {
+    font-size: 1.1em;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  
+  .status-section .active-info {
+    font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    background-color: #e6f7ff; /* Light blue background for status */
+    padding: 10px;
+    border-radius: 4px;
+    color: #0056b3;
   }
   
   .dot {
@@ -30,63 +74,116 @@ body {
     background-color: #28a745; /* Green for active */
     border-radius: 50%;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 8px;
+    flex-shrink: 0;
   }
   
-  ul {
-    padding-left: 20px;
+  .features-section ul {
+    list-style-type: none; /* Remove default bullets */
+    padding-left: 0;
     font-size: 0.9em;
-    margin-bottom: 15px;
+    margin-bottom: 0;
   }
   
-  li {
-    margin-bottom: 3px;
+  .features-section li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px; /* Space for custom bullet */
   }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
+  .features-section li::before {
+    content: "\2713"; /* Checkmark icon */
+    color: #0056b3;
+    position: absolute;
+    left: 0;
     font-weight: bold;
   }
   
+  .config-section .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .config-section label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.9em;
+  }
+  
   input[type="text"] {
-    width: calc(100% - 22px);
-    padding: 8px;
+    width: calc(100% - 22px); /* Full width minus padding and border */
+    padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: 0.95em;
   }
   
-  button {
-    background-color: #007bff; /* Anurag primary button color */
-    color: white;
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .btn {
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease-in-out;
+    display: inline-block;
+    text-align: center;
   }
   
-  button:hover {
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    width: 100%; /* Make button full width */
+  }
+  
+  .btn-primary:hover {
     background-color: #0056b3;
   }
   
   #statusMessage {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 0.9em;
-    color: green;
+    color: green; /* Default success color */
+    text-align: center;
+  }
+  
+  .footer {
+    padding: 15px 20px;
+    background-color: #f8f9fa; /* Slightly different background for footer */
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
   }
   
   .footer-text {
-    font-size: 0.8em;
+    font-size: 0.85em;
     color: #555;
-    margin-top: 15px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  
+  .footer-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .footer-text a:hover {
+    text-decoration: underline;
   }
   
   .copyright {
-    font-size: 0.75em;
+    font-size: 0.8em;
     color: #777;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
+  
+  /* Responsive adjustments if needed, though for a popup this might be minimal */
