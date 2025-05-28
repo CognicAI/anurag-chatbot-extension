@@ -139,11 +139,11 @@
   }
   
   /* Added to make all chat message text italic */
-.message-content {
-  font-style: italic;
-}
+  .message-content {
+    font-style: italic;
+  }
 
-.bot-message .message-content { 
+  .bot-message .message-content { 
     /* If you wrap the actual text in a span/div, style it here */
     padding: 12px 16px; /* Original message padding */
   }
